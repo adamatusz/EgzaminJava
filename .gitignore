@@ -1,0 +1,55 @@
+# Kompilowane pliki klasy
+*.class
+
+# Pliki logów
+*.log
+
+# Foldery build i out (zależnie od używanego narzędzia)
+build/
+out/
+
+# Foldery z plikami tymczasowymi IDE IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Foldery z plikami tymczasowymi Eclipse
+.settings/
+.project
+.classpath
+
+# Folder katalogu spośród katalogów systemowych
+target/
+
+# Konfiguracje Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Pliki konfiguracji Eclipse jeżeli nie potrzebne
+.vscode/
+
+# Systemowe pliki
+Thumbs.db
+.DS_Store
+
+# Pliki jar i inne artefakty
+*.jar
+*.war
+*.ear
+
+# Pliki buildów Gradle
+.gradle/
+build/
+
+# Plik konfiguracji gradle
+gradle-app.setting
+
+# Folder cache
+.cache/
+
+# Zależności lokalne
+*.class
