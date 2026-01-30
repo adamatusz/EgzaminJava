@@ -53,3 +53,6 @@ gradle-app.setting
 
 # Zależności lokalne
 *.class
+
+# folders
+EgzaminJava.zip
