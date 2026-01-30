@@ -55,7 +55,8 @@ public class ObjectOrientedProgramming {
     public static void main(String[] args) {
         // Testowanie dziedziczenia i polimorfizmu
         Pies burek = new Pies();
-        Zwierze burek2 = new Pies();
+        Zwierze burek2 = new Zwierze();
+        Zwierze burek4 = new Pies();
         Pies burek3 = new Pies();
 
 
@@ -67,8 +68,8 @@ public class ObjectOrientedProgramming {
         System.out.print("Zwierzę: ");
         burek2.dajGlos();
         // RZUTOWANIE (Casting) - Zmieniamy pilota na chwilę
-        System.out.print("Zwierzę, które na bank jest psem: ");
-        ((Pies) burek2).dajGlos(10);
+        System.out.print("Zwierzę, które na bank jest psem, to burek4: ");
+        ((Pies) burek4).dajGlos(10);
         System.out.print("burek3: ");
         burek3.dajGlos();
 
