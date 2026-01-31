@@ -160,26 +160,3 @@ class ZooMain {
 
     }
 }
-
-
-
-class TestRekordow {
-    public static void main(String[] args) {
-        // Tworzenie (jak zwykły obiekt)
-        Opiekun o1 = new Opiekun("Marek", "Lwy");
-        Opiekun o2 = new Opiekun("Marek", "Lwy"); // Bliźniak
-        Opiekun o3 = new Opiekun("Kasia", "Foki");
-
-        // 1. Czy toString działa? (TAK!)
-        System.out.println("Opiekun: " + o1);
-        // Wypisze: Opiekun[imie=Marek, sekcja=Lwy]
-
-        // 2. Czy equals działa? (TAK!)
-        System.out.println("Czy to ten sam opiekun? " + o1.equals(o2));
-        // Wypisze: true (mimo że nie pisaliśmy equals ręcznie!)
-
-        // 3. Jak pobrać dane? (UWAGA: brak "get")
-        System.out.println("Sekcja Marka: " + o1.sekcja());
-        // o1.getSekcja(); // BŁĄD! Nie ma metody getSekcja()
-    }
-}
