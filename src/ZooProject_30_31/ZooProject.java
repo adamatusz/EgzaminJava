@@ -6,6 +6,8 @@
 
 package ZooProject_30_31;
 
+import javax.swing.plaf.synth.SynthLookAndFeel;
+
 // 1. KLASA ABSTRAKCYJNA
 // Nie można zrobić: new Zwierze();
 abstract class Zwierze {
@@ -46,6 +48,7 @@ abstract class Zwierze {
     void spij() {
         System.out.println(imie + " idzie spać: Zzz...");
     }
+//    abstract void spij();
 }
 
 // 3. INTERFEJS
@@ -69,6 +72,9 @@ class Pies extends Zwierze implements Pupil {
         System.out.println(imie + ": Hau hau!");
     }
 
+/*    @Override
+    void spij() {System.out.println(imie + " : chrrrrr....");}*/
+
     // MUSIMY zaimplementować bawsie (bo interfejs kazał)
     @Override
     public void bawsie() {
@@ -90,7 +96,11 @@ class Wilk extends Zwierze {
         System.out.println("Wilk NIE implementuje Pupil, więc nie musi" +
                 "(i nie może)się bawić, może zjeść");
     }*/
-    // Wilk NIE implementuje Pupil, więc nie musi (i nie może) się bawić.
+
+/*    @Override
+    void spij() {
+        System.out.println(imie + " : aaaarr...");
+    }*/
 }
 
 class Nietoperz extends Zwierze {
@@ -119,7 +129,40 @@ class Nietoperz extends Zwierze {
 // 3. Metody dostępowe (imie(), id()) - BEZ "get"
 // 4. equals(), hashCode(), toString()
 
-record Opiekun(String imie, String sekcja) {}
+    class Opiekun {
+        private final String imie;
+        private final String sekcja;
+
+        public Opiekun(String imie, String sekcja) {
+            this.imie = imie;
+            this.sekcja = sekcja;
+        }
+
+        // Musisz sam napisać gettery
+        public String getImie() { return imie; }
+        public String getSekcja() { return sekcja; }
+
+        // Musisz sam napisać equals i hashCode (tutaj poprawna implementacja)
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Opiekun that = (Opiekun) o;
+            return sekcja == that.sekcja && java.util.Objects.equals(imie, that.imie);
+        }
+
+        @Override
+        public int hashCode() {
+            return java.util.Objects.hash(imie, sekcja);
+        }
+
+        @Override
+        public String toString() {
+            return "Opiekun{imie='" + imie + "', id=" + sekcja + "'}";
+        }
+    }
+
+//record Opiekun(String imie, String sekcja) {}
 
 class ZooMain {
     public static void main(String[] args) {
@@ -151,12 +194,24 @@ class ZooMain {
         Opiekun o1 = new Opiekun("Marek", "Lwy");
         Opiekun o2 = new Opiekun("Marek", "Lwy");
         Opiekun o3 = new Opiekun("Kasia", "Foki");
+/*
+
+        // nowa wersja: rekordy
 
         System.out.println("\nToString w rekordzie: " + o1);
         System.out.println("Pobieranie pola (bez get): " + o1.sekcja());
         System.out.println("Czy opiekunowie to ta sama osoba (equals)? " + o1.equals(o2)); // true (automat)
         System.out.println("Czy opiekunowie to ta sama osoba (==)? " + (o1 == o2));
         System.out.println("Gdzie biegnie: " + o3.imie() + ": " + " do " + o3.sekcja());
+*/
+
+        // stara wersja
+
+        System.out.println("\nToString w rekordzie: " + o1);
+        System.out.println("Pobieranie pola (bez get): " + o1.getSekcja());
+        System.out.println("Czy opiekunowie to ta sama osoba (equals)? " + o1.equals(o2)); // true (automat)
+        System.out.println("Czy opiekunowie to ta sama osoba (==)? " + (o1 == o2));
+        System.out.println("Gdzie biegnie: " + o3.getImie() + ": " + " do " + o3.getSekcja());
 
     }
 }
