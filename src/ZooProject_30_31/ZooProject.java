@@ -195,11 +195,19 @@ class ZooMain {
         }
 
         System.out.println("\n--- Czas zabawy ---");
-        burek.bawsie();
-        bat.bawsie();
+        for (Zwierze z : klatka) {
+            // Sprawdzamy: Czy to zwierzę jest też Pupilem?
+            if (z instanceof Pupil) {
+                // Jeśli tak, rzutujemy (zmieniamy etykietę) i się bawimy
+                Pupil p = (Pupil) z;
+                p.bawsie();
+            }
+        }
+
         // klow.bawsie(); // BŁĄD! Wilk nie ma interfejsu Pupil
-        System.out.println("==: " + (burek == zUlicy)); // false bo sprawdza adres
-        System.out.println("equals: " + burek.equals(zUlicy)); // true, nauczyliśmy klase zwierze aby sprawdzała treść,
+        System.out.println("\n--- Equals kontra '==' ---");
+        System.out.println("burek == zUlicy '==': " + (burek == zUlicy)); // false bo sprawdza adres
+        System.out.println("burek.equals(zUlicy) equals: " + burek.equals(zUlicy)); // true, nauczyliśmy klase zwierze aby sprawdzała treść,
         // domyślnie sprawdza również adres jak '==' bo to jest klasa
 
         System.out.println("\n\n====== CZĘŚĆ 2: PRACOWNICY (Rekordy) ======");
