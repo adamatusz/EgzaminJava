@@ -108,6 +108,19 @@ class Nietoperz extends Zwierze {
     }
 }
 
+// --- CZĘŚĆ 2: REKORDY ---
+
+// Rekord może być zdefiniowany w tym samym pliku (nie musi być wewnątrz klasy Main)
+
+// Definicja rekordu - to jest cała klasa!
+// Java automatycznie tworzy:
+// 1. Pola private final
+// 2. Konstruktor
+// 3. Metody dostępowe (imie(), id()) - BEZ "get"
+// 4. equals(), hashCode(), toString()
+
+record Opiekun(String imie, String sekcja) {}
+
 class ZooMain {
     public static void main(String[] args) {
         // Zwierze z = new Zwierze("Duch"); // BŁĄD! Nie można tworzyć obiektu klasy abstrakcyjnej.
@@ -133,5 +146,40 @@ class ZooMain {
         System.out.println("equals: " + burek.equals(zUlicy)); // true, nauczyliśmy klase zwierze aby sprawdzała treść,
                                                                // domyślnie sprawdza również adres jak '==' bo to jest klasa
 
+        System.out.println("\n\n====== CZĘŚĆ 2: PRACOWNICY (Rekordy) ======");
+
+        Opiekun o1 = new Opiekun("Marek", "Lwy");
+        Opiekun o2 = new Opiekun("Marek", "Lwy");
+        Opiekun o3 = new Opiekun("Kasia", "Foki");
+
+        System.out.println("\nToString w rekordzie: " + o1);
+        System.out.println("Pobieranie pola (bez get): " + o1.sekcja());
+        System.out.println("Czy opiekunowie to ta sama osoba (equals)? " + o1.equals(o2)); // true (automat)
+        System.out.println("Czy opiekunowie to ta sama osoba (==)? " + (o1 == o2));
+        System.out.println("Gdzie biegnie: " + o3.imie() + ": " + " do " + o3.sekcja());
+
+    }
+}
+
+
+
+class TestRekordow {
+    public static void main(String[] args) {
+        // Tworzenie (jak zwykły obiekt)
+        Opiekun o1 = new Opiekun("Marek", "Lwy");
+        Opiekun o2 = new Opiekun("Marek", "Lwy"); // Bliźniak
+        Opiekun o3 = new Opiekun("Kasia", "Foki");
+
+        // 1. Czy toString działa? (TAK!)
+        System.out.println("Opiekun: " + o1);
+        // Wypisze: Opiekun[imie=Marek, sekcja=Lwy]
+
+        // 2. Czy equals działa? (TAK!)
+        System.out.println("Czy to ten sam opiekun? " + o1.equals(o2));
+        // Wypisze: true (mimo że nie pisaliśmy equals ręcznie!)
+
+        // 3. Jak pobrać dane? (UWAGA: brak "get")
+        System.out.println("Sekcja Marka: " + o1.sekcja());
+        // o1.getSekcja(); // BŁĄD! Nie ma metody getSekcja()
     }
 }

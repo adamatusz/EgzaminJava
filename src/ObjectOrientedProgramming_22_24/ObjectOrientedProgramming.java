@@ -65,13 +65,14 @@ public class ObjectOrientedProgramming {
 
         System.out.print("Wielokrotne szczekanie: ");
         burek.dajGlos(3);     // Wywoła przeciążoną metodę
-        System.out.print("Zwierzę: ");
+        System.out.print("Zwierzę: "); // burek2 to Zwierzę
         burek2.dajGlos();
         // RZUTOWANIE (Casting) - Zmieniamy pilota na chwilę
         System.out.print("Zwierzę, które na bank jest psem, to burek4: ");
         ((Pies) burek4).dajGlos(10);
         System.out.print("burek3: ");
         burek3.dajGlos();
+        System.out.println("equals: " + burek.equals(burek3));
 
         // Testowanie klasy niezmiennej
         ImmutablePerson osoba = new ImmutablePerson("Agnieszka");
