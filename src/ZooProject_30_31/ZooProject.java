@@ -103,10 +103,12 @@ class Wilk extends Zwierze {
     }*/
 }
 
-class Nietoperz extends Zwierze {
+class Nietoperz extends Zwierze implements Pupil {
+
     public Nietoperz(String imie) {
         super(imie);
     }
+
     @Override
     void dajGlos() {
         System.out.println(imie + " Pisk!");
@@ -114,8 +116,11 @@ class Nietoperz extends Zwierze {
 
     @Override
     void spij() {
-        System.out.println(imie + " wisi głową w dół i śpi: Zzz...");
-    }
+        System.out.println(imie + " wisi głową w dół i śpi: Zzz...");}
+
+    @Override
+    public void bawsie() {
+        System.out.println(imie + " huśta się wisząc głową w dół ");}
 }
 
 // --- CZĘŚĆ 2: REKORDY ---
@@ -191,10 +196,11 @@ class ZooMain {
 
         System.out.println("\n--- Czas zabawy ---");
         burek.bawsie();
+        bat.bawsie();
         // klow.bawsie(); // BŁĄD! Wilk nie ma interfejsu Pupil
         System.out.println("==: " + (burek == zUlicy)); // false bo sprawdza adres
         System.out.println("equals: " + burek.equals(zUlicy)); // true, nauczyliśmy klase zwierze aby sprawdzała treść,
-                                                               // domyślnie sprawdza również adres jak '==' bo to jest klasa
+        // domyślnie sprawdza również adres jak '==' bo to jest klasa
 
         System.out.println("\n\n====== CZĘŚĆ 2: PRACOWNICY (Rekordy) ======");
 
@@ -217,7 +223,8 @@ class ZooMain {
         System.out.println("Pobieranie pola (bez get): " + o1.getSekcja());
         System.out.println("Czy opiekunowie to ta sama osoba (equals)? " + o1.equals(o2)); // true (automat)
         System.out.println("Czy opiekunowie to ta sama osoba (==)? " + (o1 == o2));
-        System.out.println("Gdzie biegnie: " + o3.getImie() + ": " + " do " + o3.getSekcja());*/
+        System.out.println("Gdzie biegnie: " + o3.getImie() + ": " + " do " + o3.getSekcja());
+*/
 
+        }
     }
-}
