@@ -47,7 +47,7 @@ public class ObjectOrientedProgramming {
             for(int i=0; i<razy; i++) {
                 System.out.print("Hau! ");
             }
-             System.out.println(); // Czytelniejsze formatowanie po pętli
+             System.out.println("\n"); // Czytelniejsze formatowanie po pętli
         }
     }
 
@@ -75,9 +75,9 @@ public class ObjectOrientedProgramming {
 
         // Testowanie klasy niezmiennej
         ImmutablePerson osoba = new ImmutablePerson("Agnieszka");
-        System.out.println("Osoba immutable: " + osoba.getName());
-        ImmutablePerson withName = new ImmutablePerson("Teresa");
-        System.out.println("Osoba immutable2: " + withName.getName());
+        System.out.println("\nOsoba immutable: " + osoba.getName());
+        ImmutablePerson osoba2 = new ImmutablePerson("Teresa");
+        System.out.println("Osoba immutable2: " + osoba2.getName());
         }
 
     }
