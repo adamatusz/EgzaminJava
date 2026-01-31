@@ -33,6 +33,10 @@ public class KontoBankowe {
         // Używamy settera, żeby od razu sprawdzić, czy kwota nie jest ujemna!
         setSaldo(kwotaStartowa);
     }
+    @Override //przesłanianie metody toString
+    public String toString() {
+        return "Konto nr: " + numerKonta + " | Dostępne środki: " + getSaldo();
+    }
 }
 
 class Main {
@@ -48,5 +52,6 @@ class Main {
 
         mojeKonto.setSaldo(-200);
         System.out.println("wyplata: " + mojeKonto.getSaldo());
+        System.out.println("\n" + mojeKonto);
     }
 }
