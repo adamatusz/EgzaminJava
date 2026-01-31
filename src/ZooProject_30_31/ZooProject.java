@@ -197,9 +197,8 @@ class ZooMain {
         System.out.println("\n--- Czas zabawy ---");
         for (Zwierze z : klatka) {
             // Sprawdzamy: Czy to zwierzę jest też Pupilem?
-            if (z instanceof Pupil) {
+            if (z instanceof Pupil p) {
                 // Jeśli tak, rzutujemy (zmieniamy etykietę) i się bawimy
-                Pupil p = (Pupil) z;
                 p.bawsie();
             }
         }
