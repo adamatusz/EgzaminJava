@@ -129,6 +129,9 @@ class Nietoperz extends Zwierze {
 // 3. Metody dostępowe (imie(), id()) - BEZ "get"
 // 4. equals(), hashCode(), toString()
 
+/*
+    // stara metoda
+
     class Opiekun {
         private final String imie;
         private final String sekcja;
@@ -162,7 +165,11 @@ class Nietoperz extends Zwierze {
         }
     }
 
-//record Opiekun(String imie, String sekcja) {}
+
+ */
+   // nowa metoda - record
+
+record Opiekun(String imie, String sekcja) {}
 
 class ZooMain {
     public static void main(String[] args) {
@@ -194,7 +201,6 @@ class ZooMain {
         Opiekun o1 = new Opiekun("Marek", "Lwy");
         Opiekun o2 = new Opiekun("Marek", "Lwy");
         Opiekun o3 = new Opiekun("Kasia", "Foki");
-/*
 
         // nowa wersja: rekordy
 
@@ -203,15 +209,15 @@ class ZooMain {
         System.out.println("Czy opiekunowie to ta sama osoba (equals)? " + o1.equals(o2)); // true (automat)
         System.out.println("Czy opiekunowie to ta sama osoba (==)? " + (o1 == o2));
         System.out.println("Gdzie biegnie: " + o3.imie() + ": " + " do " + o3.sekcja());
-*/
 
+/*
         // stara wersja
 
         System.out.println("\nToString w rekordzie: " + o1);
         System.out.println("Pobieranie pola (bez get): " + o1.getSekcja());
         System.out.println("Czy opiekunowie to ta sama osoba (equals)? " + o1.equals(o2)); // true (automat)
         System.out.println("Czy opiekunowie to ta sama osoba (==)? " + (o1 == o2));
-        System.out.println("Gdzie biegnie: " + o3.getImie() + ": " + " do " + o3.getSekcja());
+        System.out.println("Gdzie biegnie: " + o3.getImie() + ": " + " do " + o3.getSekcja());*/
 
     }
 }
