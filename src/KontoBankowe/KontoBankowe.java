@@ -73,6 +73,31 @@ public class KontoBankowe {
     }
 }
 
+class KontoOszczednosciowe extends KontoBankowe {
+
+    double oprocentowanie;
+
+    // KONSTRUKTOR
+    public KontoOszczednosciowe(String numerKonta, double oprocentowanie) {
+        // SUPER to wywołanie konstruktora rodzica (KontoBankowe).
+        // Musimy to zrobić, bo rodzic wymaga numeru konta!
+        super(numerKonta);
+        this.oprocentowanie = oprocentowanie;
+    }
+
+    // Nowa metoda, której zwykłe konto nie ma
+    public void naliczOdsetki() {
+        double odsetki = getSaldo() * oprocentowanie;
+        zrobPrzelew(odsetki, "Odsetki bankowe"); // Używamy metody rodzica!
+    }
+
+    // Nadpisujemy toString, żeby dodać info o procencie
+    @Override
+    public String toString() {
+        return super.toString() + " | Oprocentowanie: " + (oprocentowanie * 100) + "%";
+    }
+}
+
 class Main {
     public static void main(String[] args) {
         // Tutaj wpiszemy nasz kod testowy
@@ -95,5 +120,14 @@ class Main {
         mojeKonto.zrobPrzelew(500, "2023-10-01");
         mojeKonto.zrobPrzelew(-200, "2023-10-02");
         mojeKonto.drukujHistorie();
+
+        // Tworzymy konto oszczędnościowe z oprocentowaniem 5% (0.05)
+        KontoOszczednosciowe skarbonka = new KontoOszczednosciowe("OSZCZ-001", 0.05);
+        // Wpłacamy pieniądze (metoda odziedziczona z rodzica!)
+        skarbonka.zrobPrzelew(1000, "Wpłata własna");
+        // Naliczymy odsetki (metoda tylko dla oszczędnościowego)
+        skarbonka.naliczOdsetki();
+        System.out.println("\n" + skarbonka);
+        skarbonka.drukujHistorie();
     }
 }

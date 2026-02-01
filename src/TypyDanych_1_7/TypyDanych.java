@@ -1,28 +1,37 @@
 package TypyDanych_1_7;
 
-public class TypyDanych { // <--- To jest DEFINICJA KLASY
+// Definicja szablonu
+class TypyDanych {
+    // ▼▼▼ To jest POLE KLASY (Field / Instance Variable) ▼▼▼
+    // Jest "przyklejone" do obiektu. Żyje tak długo, jak żyje obiekt.
+    int $value = 5;
+}
 
-    // (TUTAJ byłoby miejsce na pola klasy, gdybyś je miał - np. private int liczba;)
-    // (TUTAJ byłoby miejsce na KONSTRUKTOR, gdybyś go napisał)
-
-    // ▼▼▼ To jest METODA (konkretnie metoda startowa "main") ▼▼▼
+// Klasa uruchomieniowa
+class Main {
     public static void main(String[] args) {
 
-        // ▼▼▼ To są ZMIENNE (Typ + Nazwa = Wartość) ▼▼▼
-        int $value = 5;      // Typ: int, Nazwa: $value
+        // 1. Tworzymy obiekt (instancję) klasy TypyDanych
+        TypyDanych obiekt = new TypyDanych();
 
-        System.out.println("stPlace: " + $value); // Wywołanie innej metody (println)
-        System.out.println("Math: " + 1 + 1);
+        // 2. Sięgamy do jego wnętrza używając kropki
+        System.out.println("stPlace: " + obiekt.$value);
+
+
+        // ▼▼▼ To są ZMIENNE LOKALNE (Local Variables) ▼▼▼
+        // Żyją tylko wewnątrz klamerek metody main { ... }
+
+        System.out.println("Math: " + 1 + 1); // Uwaga: tutaj Java zrobi z tego tekst "11"!
         System.out.println("Glue(Concatenation): " + "1" + "1");
 
-        int maly = 100;      // Typ: int, Nazwa: maly
-        double duzy = maly;  // Typ: double, Nazwa: duzy
+        int maly = 100;
+        double duzy = maly;
         System.out.println("Widening: " + duzy);
 
-        double precyzyjny = 9.99; // Typ: double, Nazwa: precyzyjny
+        double precyzyjny = 9.99;
         System.out.println("Precyzyjne: " + precyzyjny);
 
-        int uciety = (int) precyzyjny; // Typ: int, Nazwa: uciety
+        int uciety = (int) precyzyjny;
         System.out.println("Narrowing: " + uciety);
-    } // ▲▲▲ Koniec metody main
+    }
 }
